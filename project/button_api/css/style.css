@@ -1,0 +1,343 @@
+@charset "UTF-8";
+*{ margin: 0; padding: 0; }
+body{ text-align: center; min-width: 250px;}
+h1,h2,h3,h4,h5,h6{ margin: 20px;}
+h3{ color: gray; }
+input { display: none; }
+
+/* type_1 checkbox start nomal size*/
+.checkbox{
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+.checkbox.type_1 .slider::before{background: silver;}
+.checkbox.type_1 input:checked + .slider::before{ background: #1b96f4;}
+
+.checkbox .slider{
+  transition: 0.5s;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #f1f1f1;
+  box-shadow: inset 0px 0px 5px rgba(0,0,0,.2);
+}
+
+.checkbox .slider::before{
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background: white;
+  transition: .5s;
+}
+
+.checkbox input:checked + .slider{
+  transition: none;
+  background: #f1f1f1;
+}
+
+.checkbox.round .slider::before{
+  left: 2px;
+  border-radius: 15px;
+}
+
+.checkbox.round .slider::before:checked{ background: #2196f3; }
+
+.checkbox input:checked + .slider::before{ left: 32px; }
+/* type_1 checkbox end*/
+/* type_2 checkbox start round*/
+.checkbox.round{ border-radius: 15px; }
+
+.checkbox.round input:checked + .slider{ border-radius: 15px; }
+
+.checkbox.round .slider{ border-radius: 15px; }
+.checkbox.type_2 input:checked + .slider{ background: #fcdf87; }
+.checkbox.type_3 input:checked + .slider{ background: #ef0195; }
+.checkbox.type_4 input:checked + .slider{ background: #1b96f4; }
+.checkbox.type_5 input:checked + .slider{ background: #10133a; }
+
+/* type_2 checkbox end*/
+/* type_3 and 4 checkbox start small size &round*/
+.checkbox.small{
+  width: 40px;
+  height: 20px;
+}
+
+.checkbox.small .slider::before{
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox.small input:checked + .slider::before{ left: 22px; }
+
+/* type_3 and 4 checkbox end*/
+/* wrap_two img checkbox start start*/
+/* CAT START*/
+#wrap_two{ text-align: center;}
+#wrap_two h2{ margin: 50px 0 0; padding-top: 50px}
+#wrap_two::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height:3px;
+  left: 0;
+  right: 0;
+  background: red;
+}
+.img_button{
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background: #283a47;
+  border-radius: 15px;
+}
+
+.img_button.cat .slider::before{
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  left: 2px;
+  background-image: url('../img/cat/cat_1.png');
+  background-position: center center;
+  background-size: cover;
+  transition: 1s;
+}
+
+.img_button.cat input:checked + .slider::before{
+  left: 32px;
+  transform: rotate(360deg);
+}
+
+.img_button.cat input:checked + .slider::after{
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 10px;
+  left: 2px;
+  background-image: url('../img/cat/cat_2.png');
+  background-position: center center;
+  background-size: cover;
+  animation-name: cat;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  opacity: 0;
+}
+
+@keyframes cat {
+  0%{ width: 10px; height: 10px; transform: scale(1,1); opacity: 0}
+  100%{ width: 10px; height: 10px; transform: scale(1.5,1.2); opacity: 1}
+}
+
+.img_button.cat input:checked + .slider::after{
+  left: 40px;
+  top: 18px;
+  width:10px;
+  height:10px;
+  transition-delay: 1s;
+  transition: 1s;
+}
+/* cat bigsize start */
+.img_button.cat.bigsize{
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.img_button.cat.bigsize .slider::before{
+  width: 37px;
+  height: 37px;
+  left: 3px;
+  background-image: url('../img/cat/cat_1.png');
+  background-position: center center;
+  background-size: cover;
+  transition: 1s;
+}
+
+.img_button.cat.bigsize input:checked + .slider::before{
+  left: 42px;
+}
+
+.img_button.cat.bigsize input:checked + .slider::after{
+  left: 54px;
+  top: 25px;
+  width:18px;
+  height:18px;
+}
+/* cat bigsize end */
+/* CAT END*/
+/* moving button start*/
+
+.img_button.moving .slider{
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 14px;
+  left: 2px;
+  top: 2px;
+  background: #80bf46;
+}
+
+.img_button.moving .slider::before{
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+  background-image: url('../img/esc/yes.png');
+  background-size: cover;
+}
+
+.img_button.moving input:checked + .slider::before{
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+  background-image: url('../img/esc/esc.png');
+  background-position: center center;
+  transform: rotate(45deg);
+  background-size: cover;
+}
+
+.img_button.moving input:checked + .slider{
+  left: 32px;
+  transition: 1s;
+  background: #be4c48;
+}
+
+/*img_button.moving nth 2///*/
+
+.img_button.moving.type_b .slider{
+  background: #be4c48;
+}
+
+.img_button.moving.type_b .slider::before{
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+  background-image: url('../img/esc/esc.png');
+  transform: rotate(45deg);
+  background-position: center center;
+  background-size: cover;
+}
+
+.img_button.moving.type_b input:checked + .slider::before{
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+  background-image: url('../img/esc/yes.png');
+  transform: rotate(0deg);
+  background-size: cover;
+}
+
+.img_button.moving.type_b.animation input:checked + .slider{
+  left: 32px;
+  transition: 1s;
+  transform: rotate(360deg);
+  background: #80bf46;
+}
+
+.img_button.moving.type_a.animation input:checked + .slider{
+  left: 32px;
+  transition: 1s;
+  transform: rotate(360deg);
+  background: #be4c48;
+}
+
+.img_button.moving.type_a input:checked + .slider{
+  left: 32px;
+  transition: 1s;
+  background: #be4c48;
+}
+
+.img_button.moving.type_b.animation .slider{
+  background: #be4c48;
+  transition: 1s;
+}
+
+.img_button.moving.type_a.animation .slider{
+  background: #80bf46;
+  transition: 1s;
+}
+
+/*img_button.moving nth 2///*/
+
+/* moving button END*/
+
+/* opacity button start */
+
+.img_button{
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background: #283a47;
+  border-radius: 15px;
+}
+
+.img_button.opacity .slider::before{
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 2px;
+  left: 3px;
+  background: white;
+  border-radius: 100%;
+  transition: 1s;
+}
+
+.img_button.opacity input + .slider::after{
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 2px;
+  left: 15px;
+  background: white;
+  border-radius: 100%;
+  transition: 1s;
+  transition-delay: 0s;
+  transform: scale(0.5,0.5);
+  opacity: 0;
+}
+
+.img_button.opacity input:checked + .slider::after{
+  background: #2196f3;
+  left: 31px;
+  transform: scale(1,1);
+  opacity: 1;
+}
+
+.img_button.opacity input:checked + .slider::before{
+  left: 15px;
+  transition: 1s;
+  transition-delay: 0s;
+  transform: scale(0.5,0.5);
+  opacity: 0;
+}
+
+/* opacity button end */
+
+/* wrap_two img checkbox start end*/
